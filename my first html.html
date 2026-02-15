@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> My first HTML </title>
+    </head>
+    <body>
+    <h1 style="font-family:Helvetica;"> Laboratorio 1: Introducción a las aplicaciones web, HTML5 y ciclo de vida de los sistemas de información </h1>
+    <p style="font-family:Helvetica;">
+        <strong>¿Cuál es la diferencia entre Internet y la World Wide Web?</strong> <br><br>
+
+        El internet se refiere a la infraestructura, la red de redes que permite la comunicación entre dispositivos haciendo posible la comunicación y transferencia de datos. <br>
+        La web es la parte del Internet que permite la presentación y acceso a información y recursos multimedia, esta es accesada gracias a los navegadores web <br><br>
+
+        <strong>¿Cuáles son las partes de un URL?</strong> <br><br>
+
+        Las partes de una URL son:
+        <ol>
+            <li> protocolo (https://) --- indica el tipo información que se estará consultando</li>
+            <li> subdominio (www) --- refiere a World Wide Web y es el subdominio más común, de http y https por ejemplo</li>
+            <li> dominio (ejemplo) --- es el nombre del sitio web</li>
+            <li> extensión o TLD (.com) --- es la parte que que clasifica sitios web por tipo o geografía, influyendo en la confianza y el SEO</li>
+            <li> la ruta o subcarpeta (/pagina) --- identifica el apartado y/o archivo al que se pretende llegar dentrod e un mismo sitio web</li>
+        </ol>
+
+        siendo en este caso la URL completa: <strong> https://www.ejemplo.com/pagina </strong> <br>
+
+        También existen elementos "ocultos" o que se omiten la mayoria de veces, como los puertos, que en caso de http utiliza el "80"<br><br>
+
+        <strong> ¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</strong> <br>
+        <ul>
+            <li>GET: Solicita la representación de un recurso específico. Se utiliza para consultar información sin alterar el estado del servidor.</li>
+            <li>HEAD: Funciona igual que GET, pero sin devolver el cuerpo de la respuesta. Ideal para verificar disponibilidad, caché o tamaño de un recurso sin descargar datos pesados.</li>
+            <li>POST: Envía datos al servidor para crear un nuevo recurso o realizar acciones que cambian el estado.</li>
+            <li>PUT: Reemplaza o actualiza un recurso existente por completo con la nueva representación enviada.</li>
+            <li>PATCH: Aplica modificaciones parciales a un recurso, actualizando solo los campos enviados sin necesidad de re-enviar todo el recurso.</li>
+            <li>DELETE: Elimina un recurso específico del servidor. </li>
+        </ul>
+
+
+        <strong> ¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</strong> <br><br>
+
+        En el caso de enviar datos sensibles como usuarios y contraseñas de un sistema web, el método que se debe de utilizar es POST, debido a que este método no permite que los datos a manejar viajen de forma insegura y completamente pública por la red, dandole un cifrado y hacviendo que este tipo de datos no sean filtrados a personas indebidas. <br><br>
+
+        <strong> ¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</strong> <br><br>
+
+        Para accesar a una página web atraves de HTTP se utiliza el método GET, el que nos permite obtener, consultar y posteriormente mostrar información solicitada. Por lo tanto es importante considerar que parámetros se envian y de que forma al soliictar acceso a una página, debido a qeu estos seran pasados por la red abiertamente.<br><br>
+
+        <strong> Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</strong> <br><br>
+
+        Los códigos de HTTP determinan el estado de una página tras una acción (generalmente), estas son identificadas con números. El código 200 rerpesenta un funcionamiento correcto de la página, por lo que ningún error se ha dado. <br><br>
+
+        <strong> ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</strong> <br><br>
+
+        El error 404 representa que una solicitud fue rechazada debido a la inexistencia del recurso al que se intenta accesar, eso puede ocurrir al escribir erroneamente la dirección de un sitio o dando click a un link mal diseñado.<br>
+        En este último caso es responsabilidad del diseñador no presentar direcciónes confusas o equívocas para el acceso de usuraios, sin embargo en cualquier otro caso es comúnmente un error del usuario.<br><br>
+
+        <strong> ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</strong> <br><br>
+
+        Un error 500 indica que el servidor web encontró una condición inesperada que le impidió procesar la solicitud, eso es generalmente por envio de parametros no comprehensibles para el sistema, archivos corruptos, o solicitud de script <br><br>
+
+        <strong> ¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</strong> <br><br>
+
+        AL pasar de versiones (como de HMTL 4 a 5) algunos atributos se marcar para su "jubilación", siendo que dejaran de operar como se ha estado haciendo, esto se puede deber a una reestructuración por la actualización, una optimicación o una falta de uso en la nueva versión; sin emabrgo, etso no significa que el atributo dejara de funcionar, simplemente avisa que ya no es actual y posteriormente se inhabilitar. Algunos atributos despreciados de HMTL 4 al 5 son:
+        <ul>
+            <li> center: se utilizaba para centrar  contenido, actalmente se utiliza las funciones de css como -- text-align: center; --</li>
+            <li> font: servía para cambiar el color, tipografia y diseño en general de un texto, actualmente se utiliza las funciones de css como -- color, font-family, font-size. --</li>
+            <li> u: utilizado para subrayar texto, actualmente se utilizan funciones de css como -- text-decoration: underline;. --</li>
+        </ul>
+
+        <strong> ¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</strong> <br><br>
+
+        HTML 4 Y HTML 5 se diferencian en diferentes ámbitos, la mayoria enfocadas en la eficiencia al trabajar en estructuración de un documento<br><br>
+
+        <strong> ¿Qué componentes de estructura y estilo tiene una tabla?</strong> <br>
+
+        <ol>
+            <li>Componentes de Estructura (HTML)</li>
+            <ul>
+                <li>table: El contenedor principal que envuelve toda la estructura</li>
+                <li>caption: El título o descripción breve de la tabla (opcional, pero excelente para accesibilidad).</li>
+                <li>thead: Agrupa el contenido del encabezado.</li>
+                <li>tbody: Agrupa el cuerpo principal de los datos.</li>
+                <li>tfoot: Agrupa el pie de la tabla (útil para sumatorias o notas).</li>
+                <li> (Table Row): Define una fila </li>
+                <li> (Table Header): Define una celda de encabezado (el texto suele salir en negrita y centrado por defecto)</li>
+                <li> (Table Data): Define una celda de datos estándar.</li>
+            </ul>
+            <li>Componentes de Estilo (CSS)</li>
+            <ul>
+                <li>border-collapse: Es la más importante. Decide si los bordes de las celdas están separados o se unen en una sola línea fija (collapse).</li>
+                <li>border: Define el grosor, estilo y color de los bordes.</li>
+                <li>padding: El espacio interno entre el texto y el borde de la celda.</li>
+                <li>text-align: Alineación horizontal (left, center, right).</li>
+            </ul>
+        </ol>
+
+        <strong> ¿Cuáles son los principales controles de una forma HTML5?</strong> <br><br>
+        Cuando hablamos de controles en un forma de HTML5 nos referimos a aquellas funcionalidades que toman parte en la realización de una forma o formulario en HTML, siendo importantes para una interacción correcta con el usuario, un envio de datos óptimos y una estructura del formulario adecuada. Algunos de los más relevantes son los siguientes:<br>
+        <table>
+            <tr>
+                <th>Comando</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <th>&lt type &gt</th>
+                <th>Control que permiten la identificación del tipo de un apartado (celda), este elemento puede ser utilizado como &lt type="color" &gt , &lt type="email" &gt , &lt type="number" &gt , &lt type="range" &gt , etc.</th>
+            </tr>
+            <tr>
+                <th>&lt placeholder &gt</th>
+                <th>Permite el despliegue de un texto de sugerencia en una celda para apoyo del usuario.</th>
+            </tr>
+            <tr>
+                <th>&lt required &gt</th>
+                <th>Permite al diseñador especificar la importancia de una celda. Celdas marcadas con este control deberan ser rellenadas antes del envio de un formulario.</th>
+            </tr>
+            <tr>
+                <th>&lt datalist &gt</th>
+                <th>Permite la creación de una lista de sugerencias mientras el usuario escribe, pero permite escribir algo distinto si se desea.</th>
+            </tr>
+
+        <strong> ¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para descubrirlo: http://html5test.com/</strong> <br><br>
+
+        <img src="https://cdn.neowin.com/news/images/uploaded/2025/04/1745985859_html5test.jpg" alt="HTML 5 para Google.com"> <br><br>
+        Segun la página de html5test google.com (mi buscador de preferencia) cumple con 525 de 555 estándares para HTML5, siendo que cumple con un 94% de los estándares de HTML5.<br><br>
+
+        <strong> Sobre el ciclo de vida y desarrollo de los sistemas de información: <br>
+        ¿Cuál es el ciclo de vida de los sistemas de información?</strong> <br>
+
+        <ol>
+            <li>Concepción</li>
+            <li>Desarrollo</li>
+            <li>Puesta en operación</li>
+            <li>Mantenimiento</li>
+            <li>Retiro</li>
+        </ol>
+
+        <strong> ¿Cuál es el ciclo de desarrollo de sistemas de información?</strong> <br><br>
+
+
+
+    </p>
+    </body>
+</html>
