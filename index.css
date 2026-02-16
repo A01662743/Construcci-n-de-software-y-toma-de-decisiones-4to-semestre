@@ -1,6 +1,8 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css";
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: rgb(215, 161, 145);
+  
   margin: 0 auto;
   max-width: 50em;
 }
@@ -30,5 +32,5 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #011889;
 }
