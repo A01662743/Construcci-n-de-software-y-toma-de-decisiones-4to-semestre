@@ -5,8 +5,10 @@
         <link rel="stylesheet" href="./index.css" />
     </head>
     <body>
-    <h3> Laboratorio 1: Introducción a las aplicaciones web, HTML5 y ciclo de vida de los sistemas de información </h3>
-    <p>
+    <div class="title", style="text-align: center;">4to semestre: MI HTML</div>
+    <div class="apartado-card">
+    <button onclick="controlador.toggle(1)"> Laboratorio 1: Introducción a las aplicaciones web, HTML5 y ciclo de vida de los sistemas de información </button> <br>
+    <div id="part-1" class="apartado"><p>
         <strong>¿Cuál es la diferencia entre Internet y la World Wide Web?</strong> <br><br>
 
         El internet se refiere a la infraestructura, la red de redes que permite la comunicación entre dispositivos haciendo posible la comunicación y transferencia de datos. <br>
@@ -27,7 +29,7 @@
 
         También existen elementos "ocultos" o que se omiten la mayoria de veces, como los puertos, que en caso de http utiliza el "80"<br><br>
 
-        <strong> ¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</strong> <br>
+        <strong> ¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</strong> <br><br>
         <ul>
             <li>GET: Solicita la representación de un recurso específico. Se utiliza para consultar información sin alterar el estado del servidor.</li>
             <li>HEAD: Funciona igual que GET, pero sin devolver el cuerpo de la respuesta. Ideal para verificar disponibilidad, caché o tamaño de un recurso sin descargar datos pesados.</li>
@@ -35,8 +37,7 @@
             <li>PUT: Reemplaza o actualiza un recurso existente por completo con la nueva representación enviada.</li>
             <li>PATCH: Aplica modificaciones parciales a un recurso, actualizando solo los campos enviados sin necesidad de re-enviar todo el recurso.</li>
             <li>DELETE: Elimina un recurso específico del servidor. </li>
-        </ul>
-
+        </ul> <br>
 
         <strong> ¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</strong> <br><br>
 
@@ -66,13 +67,13 @@
             <li> center: se utilizaba para centrar  contenido, actalmente se utiliza las funciones de css como -- text-align: center; --</li>
             <li> font: servía para cambiar el color, tipografia y diseño en general de un texto, actualmente se utiliza las funciones de css como -- color, font-family, font-size. --</li>
             <li> u: utilizado para subrayar texto, actualmente se utilizan funciones de css como -- text-decoration: underline;. --</li>
-        </ul>
+        </ul> <br>
 
         <strong> ¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</strong> <br><br>
 
         HTML 4 Y HTML 5 se diferencian en diferentes ámbitos, la mayoria enfocadas en la eficiencia al trabajar en estructuración de un documento<br><br>
 
-        <strong> ¿Qué componentes de estructura y estilo tiene una tabla?</strong> <br>
+        <strong> ¿Qué componentes de estructura y estilo tiene una tabla?</strong> <br><br>
 
         <ol>
             <li>Componentes de Estructura (HTML)</li>
@@ -93,7 +94,7 @@
                 <li>padding: El espacio interno entre el texto y el borde de la celda.</li>
                 <li>text-align: Alineación horizontal (left, center, right).</li>
             </ul>
-        </ol>
+        </ol> <br>
 
         <strong> ¿Cuáles son los principales controles de una forma HTML5?</strong> <br><br>
         Cuando hablamos de controles en un forma de HTML5 nos referimos a aquellas funcionalidades que toman parte en la realización de una forma o formulario en HTML, siendo importantes para una interacción correcta con el usuario, un envio de datos óptimos y una estructura del formulario adecuada. Algunos de los más relevantes son los siguientes:<br><br>
@@ -127,7 +128,7 @@
         Segun la página de html5test google.com (mi buscador de preferencia) cumple con 525 de 555 estándares para HTML5, siendo que cumple con un 94% de los estándares de HTML5.<br><br>
 
         <strong> Sobre el ciclo de vida y desarrollo de los sistemas de información: <br>
-        ¿Cuál es el ciclo de vida de los sistemas de información?</strong> <br>
+        ¿Cuál es el ciclo de vida de los sistemas de información?</strong> <br><br>
 
         <ol>
             <li>Concepción</li>
@@ -135,9 +136,9 @@
             <li>Puesta en operación</li>
             <li>Mantenimiento</li>
             <li>Retiro</li>
-        </ol>
+        </ol> <br>
 
-        <strong> ¿Cuál es el ciclo de desarrollo de sistemas de información?</strong> <br>
+        <strong> ¿Cuál es el ciclo de desarrollo de sistemas de información?</strong> <br><br>
         <ol>
             <li>Planeación</li>
             <li>Análisis de requisitos</li>
@@ -149,9 +150,13 @@
         </ol> <br>
     </p>
     <p>
+    </div>
+    </div>
 
-        <h3> <div, text-align: center>CSS</div></h3>
+    <div class="apartado-card">
+        <button onclick="controlador.toggle(2)">CSS</button> <br>
 
+        <div id="part-2" class="apartado">
         <strong>Cómo ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS?</strong> <br><br>
 
         Considero que el uso de este comando es útil para formular una estilización general de una página web sin enecsidad de indagar en la estructuración de ID's, clases, etc. mostrando exactamente lo que uno desea, sin embargo no me parece correcto para la presentación final de un projecto pues demuestra en muchos casos una programación desestructurada.<br><br>
@@ -166,11 +171,171 @@
 
         <strong>¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</strong> <br><br>
 
-        El uso de css minimizados eficienta el procesamiento de la misma al reducir espacios inecesarios que le toman tiempo a la maquina, siendo que más recursos son invertidos en procesar lo importante por lo que menos tiempo le toma en mostrar el resultado.
+        El uso de css minimizados eficienta el procesamiento de la misma al reducir espacios inecesarios que le toman tiempo a la maquina, siendo que más recursos son invertidos en procesar lo importante por lo que menos tiempo le toma en mostrar el resultado. <br><br>
 
     </p>
     <p>
-        <h3>Framework: Bulma</h3>
+        <h3><div style="text-align: center;">Material Design (Framework: Bulma)</div></h3><br>
+
+        Material Design es el sistema de diseño de código abierto creado por Google en 2014. Material Design se rige por tres principios que lo hacen sentir natural y coherente:
+        <ol>
+            <li>Material en un espacio mallado: Los elementos ocupan un lugar en el espacio (eje Z). Tienen superficie, bordes y sombras. Si un botón está "encima" de otro, proyectará una sombra más profunda.</li>
+
+            <li>Llamativo, gráfico e intencional: Utiliza tipografías grandes, mucho espacio en blanco y colores vibrantes para guiar la atención del usuario hacia lo más importante (como el famoso botón flotante de "redactar" en Gmail).</li>
+
+            <li>El movimiento con significado: Las animaciones no son solo adornos; sirven para explicar de dónde viene un objeto. Si tocas una foto y se expande, el movimiento te confirma que esa foto es el origen de la nueva pantalla</li>
+        </ol> <br>
     </p>
+    </div></div>
+
+    <div class="apartado-card">
+    <p>
+        <button onclick="controlador.toggle(3)">Laboratorio 4: Fundamentos de JavaScript</button><br>
+        <div id="part-3" class="apartado">
+
+        <strong>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</strong> <br><br>
+
+        <strong>Semejanzas</strong> <br><br>
+
+        <ol>
+            <li>Sintaxis basada en C: Ambos heredan la estructura de llaves { }, puntos y coma ; y la forma de escribir bucles (for, while) y condicionales (if).</li>
+            <li>Orientación a Objetos: Ambos pueden trabajar con objetos y clases, aunque lo hacen de formas internamente diferentes.</li>
+            <li>Bibliotecas y Ecosistema: Los dos cuentan con comunidades gigantescas y una gran cantidad de librerías para resolver cualquier problema.</li>
+        </ol> <br><br>
+
+        <strong>Diferencias</strong><br><br>
+
+        <table>
+            <tr>
+                <th>Característica</th>
+                <th>Java</th>
+                <th>JavaScript</th>
+            </tr>
+            <tr>
+                <th>Tipo de Lenguaje</th>
+                <th>Compilado (se transforma en bytecode antes de correr).</th>
+                <th>Interpretado (el navegador lee el código línea a línea).</th>
+            </tr>
+            <tr>
+                <th>Tipado</th>
+                <th>Fuerte y Estático: Debes definir si una variable es int, String, etc.</th>
+                <th>Débil y Dinámico: Una variable puede ser un número y luego un texto.</th>
+            </tr>
+            <tr>
+                <th>Plataforma</th>
+                <th>Se ejecuta en la JVM (Java Virtual Machine).</th>
+                <th>Se ejecuta principalmente en Navegadores y Node.js.</th>
+            </tr>
+            <tr>
+                <th>Uso Principal</th>
+                <th>Aplicaciones empresariales, Android, Backend masivo.</th>
+                <th>Desarrollo web (Frontend), apps móviles híbridas, servidores.</th>
+            </tr>
+            <tr>
+                <th>Verbosidad</th>
+                <th>Muy descriptivo (necesitas muchas líneas para algo simple).</th>
+                <th>Mucho más conciso y flexible.</th>
+            </tr>
+        </table> <br><br>
+
+        <strong>¿Qué métodos tiene el objeto Date?</strong> <br><br>
+
+        <table>
+            <tr>
+                <th>Método</th>
+                <th>¿Qué devuelve?</th>
+                <th>Ejemplo</th>
+            </tr>
+            <tr>
+                <th><code>getHours()</code></th>
+                <th>La hora (0-23)</th>
+                <th>17 (si son las 5 PM)</th>
+            </tr>
+            <tr>
+                <th><code>getMinutes()</code></th>
+                <th>Los minutos (0-59)</th>
+                <th>23 (si son las 9:23 por ejemplo)</th>
+            </tr>
+            <tr>
+                <th><code>toLocaleDateString()</code></th>
+                <th>fecha en formato legible</th>
+                <th>15/5/2026</th>
+            </tr>
+            <tr>
+                <th><code>getMonth()</code></th>
+                <th>el mes (0-11 *)</th>
+                <th>4 (para el mes de Mayo)</th>
+            </tr>
+            <tr>
+                <th><code>getDsy()</code></th>
+                <th>el día de la semana (0-7 *)</th>
+                <th>0 (si es Domingo)</th>
+            </tr>
+        </table> <br><br>
+
+        <strong>¿Qué métodos tienen los arreglos?</strong> <br><br>
+
+        <table>
+        <thead>
+            <tr>
+            <th>Método</th>
+            <th>¿Modifica el original?</th>
+            <th>Propósito principal</th>
+            <th>Ejemplo de uso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><code>push()</code></td>
+            <td>Sí</td>
+            <td>Añadir al final.</td>
+            <td><code>[1, 2].push(3)</code> resulta en <code>[1, 2, 3]</code></td>
+            </tr>
+            <tr>
+            <td><code>shift()</code></td>
+            <td>Sí</td>
+            <td>Eliminar el primero.</td>
+            <td><code>[1, 2, 3].shift()</code> resulta en <code>[2, 3]</code></td>
+            </tr>
+            <tr>
+            <td><code>map()</code></td>
+            <td>No</td>
+            <td>Transformar datos.</td>
+            <td><code>[1, 2].map(x => x * 2)</code> resulta en <code>[2, 4]</code></td>
+            </tr>
+            <tr>
+            <td><code>filter()</code></td>
+            <td>No</td>
+            <td>Buscar múltiples coincidencias.</td>
+            <td><code>[1, 10, 20].filter(x => x > 5)</code> resulta en <code>[10, 20]</code></td>
+            </tr>
+            <tr>
+            <td><code>find()</code></td>
+            <td>No</td>
+            <td>Buscar la <strong>primera</strong> coincidencia.</td>
+            <td><code>[5, 12, 8].find(x => x > 10)</code> resulta en <code>12</code></td>
+            </tr>
+            <tr>
+            <td><code>reduce()</code></td>
+            <td>No</td>
+            <td>Acumular todo en un solo valor.</td>
+            <td><code>[1, 2, 3].reduce((a, b) => a + b)</code> resulta en <code>6</code></td>
+            </tr>
+        </tbody>
+        </table> <br>
+
+        <strong>¿Cómo se declara una variable con alcance local dentro de una función?</strong> <br><br>
+
+        Las variables creadas con el operador "let" especifica una variable (de tipo dinámico) que existe solo bajo su rango de operación, por ejemplo dentro de una función, un ciclo, etc. <br>
+        Al generarse con el operador "var" la variable no deja de existir, siendo que pueda representar una mala implementación al dejar variables inutilizadas tras un pequeño espacio. <br><br>
+
+        <strong>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</strong><br><br>
+
+        Al declarar variables globales dentro de funciones corremos el riesgo de mandar a llamar o utilizar dichas variables fuera de la función y generar problemas. Es común que variabels usadas en funciones no se usen fuera de ellos al ser muy locales, como por ejemplo los iteradores. <br><br>
+
+    </p>
+    </div> </div>
+
+    <script src="./index.js"></script>
     </body>
 </html>
