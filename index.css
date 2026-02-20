@@ -1,5 +1,7 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css";
 
+
+/* estilo general */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   
@@ -14,6 +16,8 @@ h1 {
 h2 {
   color: blue;
 }
+
+/* tablas */
 
 .questions {
   font-weight: bold;
@@ -35,6 +39,8 @@ tr:nth-child(even) {
   background-color: #011889;
 }
 
+/* apartados */
+
 .apartado-card {margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
 
 button { 
@@ -48,3 +54,10 @@ button {
 }
 
 .apartado.abierta { padding: 15px;}
+
+/* verificador de password */
+
+.input-container { transition: transform 0.2s; }
+.input-container:hover { transform: scale(1.02); }
+.requirement { font-size: 0.85rem; color: #7a7a7a; }
+.is-valid-req { color: #48c78e !important; font-weight: bold; }

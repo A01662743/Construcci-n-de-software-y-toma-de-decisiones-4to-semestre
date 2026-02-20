@@ -1,6 +1,6 @@
 document.write("<div class='apartado-card'>");
-document.write("<button onclick='controlador.toggle(4)'>JavaScript</button>");
-document.write("<div id='part-4' class='apartado'>");
+document.write("<button onclick='controlador.toggle(5)'>JavaScript Ejercicios</button>");
+document.write("<div id='part-5' class='apartado'>");
 
 // Ejercicio 1
 let num = parseInt(prompt("Introduce un número:"));
@@ -131,3 +131,84 @@ class GestorContenido {
 const controlador = new GestorContenido();
 
 document.write("<div> <div>");
+
+//verificador de password
+
+  class ValidadorPassword {
+  constructor() {
+      this.pass1 = document.getElementById('pass1');
+      this.pass2 = document.getElementById('pass2');
+      this.msg = document.getElementById('match-msg');
+      
+      this.init();
+  }
+
+  init() {
+      // Escuchamos cada vez que el usuario escribe
+      this.pass1.addEventListener('input', () => this.validar());
+      this.pass2.addEventListener('input', () => this.validar());
+  }
+
+  validar() {
+      const v1 = this.pass1.value;
+      const v2 = this.pass2.value;
+
+      // 1. Validar Requisitos Individuales
+      const tieneOcho = v1.length >= 8;
+      const tieneNum = /\d/.test(v1);
+      const tieneMayus = /[A-Z]/.test(v1);
+
+      this.toggleClase('req-len', tieneOcho);
+      this.toggleClase('req-num', tieneNum);
+      this.toggleClase('req-upper', tieneMayus);
+
+      // 2. Validar Coincidencia (Solo si el segundo campo tiene algo)
+      if (v2.length > 0) {
+          if (v1 === v2 && tieneOcho && tieneNum && tieneMayus) {
+              this.setEstado(this.pass2, 'is-success', '✅ Coinciden y es segura');
+          } else {
+              this.setEstado(this.pass2, 'is-danger', '❌ No coinciden o no cumple requisitos');
+          }
+      } else {
+          this.limpiarEstado();
+      }
+  }
+
+  toggleClase(id, cumple) {
+      const el = document.getElementById(id);
+      cumple ? el.classList.add('is-valid-req') : el.classList.remove('is-valid-req');
+  }
+
+  setEstado(el, clase, texto) {
+      el.classList.remove('is-success', 'is-danger');
+      el.classList.add(clase);
+      this.msg.innerText = texto;
+      this.msg.className = `help ${clase === 'is-success' ? 'is-success' : 'is-danger'}`;
+  }
+
+  limpiarEstado() {
+      this.pass2.classList.remove('is-success', 'is-danger');
+      this.msg.innerText = '';
+  }
+}
+
+// FUNCIONES PARA EL POP-UP (MODAL)
+function abrirModal(tipo) {
+  const modal = document.getElementById('modal-info');
+  const texto = document.getElementById('modal-text');
+  
+  if(tipo === 'info-pass1') {
+      texto.innerText = "La robustez de tu contraseña es vital. Usar mayúsculas y números evita ataques de fuerza bruta.";
+  } else {
+      texto.innerText = "Este campo asegura que no hayas cometido un error de dedo al escribir tu nueva clave.";
+  }
+  
+  modal.classList.add('is-active');
+}
+
+function cerrarModal() {
+  document.getElementById('modal-info').classList.remove('is-active');
+}
+
+// Iniciar
+const app = new ValidadorPassword();

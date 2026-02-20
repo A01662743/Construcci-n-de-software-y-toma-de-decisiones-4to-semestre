@@ -336,6 +336,55 @@
     </p>
     </div> </div>
 
+    <div class="apartado-card">
+        <button onclick="controlador.toggle(4)">Lab 6: Programación orientada a eventos</button>
+        <div id="part-4" class="apartado">
+
+            <section class="section">
+        <div class="container" style="max-width: 500px;">
+            <h1 class="title">Seguridad de Cuenta</h1>
+
+            <div class="field input-container">
+                <label class="label">Contraseña 
+                    <button class="button is-small is-rounded is-info is-light" onclick="abrirModal('info-pass1')">i</button>
+                </label>
+                <div class="control has-icons-right">
+                    <input class="input" type="password" id="pass1" placeholder="Escribe tu contraseña">
+                </div>
+                <ul class="help">
+                    <li id="req-len" class="requirement">• Mínimo 8 caracteres</li>
+                    <li id="req-num" class="requirement">• Al menos un número</li>
+                    <li id="req-upper" class="requirement">• Una letra mayúscula</li>
+                </ul>
+            </div>
+
+            <div class="field input-container">
+                <label class="label">Verificar Contraseña
+                    <button class="button is-small is-rounded is-info is-light" onclick="abrirModal('info-pass2')">i</button>
+                </label>
+                <div class="control">
+                    <input class="input" type="password" id="pass2" placeholder="Repite tu contraseña">
+                </div>
+                <p id="match-msg" class="help"></p>
+            </div>
+        </div>
+    </section>
+
+        <strong>¿Por qué es una buena práctica usar JavaScript para checar que sean válidos los inputs de las formas antes de enviar los datos al servidor?</strong><br><br>
+
+        Es importante esta forma de validación de datos puesto que permite la retroalimentación de la forma sobre alguna respuesta antes de que esta sea enviada, esto fomenta una eficiencia y repidez al rellenar formas y libera de craga al servidor con respeustas incorrectas.
+        Sin embargo, no se deberia considerar unicamente este método para la validación de respuestas en formas, puesto que esta puede ser evitada o "saltada" por un usuario, al ser el código ejecutado en el navegador. <br><br>
+
+        <strong>¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</strong> <br><br>
+
+        Al desactivar el JS dentro del navegador puedes desactivar las acciones/ordenes que envia para verificación de datos en una forma. <br><br>
+
+        <strong>Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por qué la primera pregunta dice que es una buena práctica?</strong><br><br>
+
+        Este refiere a que es una buena práctica complementaria y mas de "ayuda" al usuario sobre de seguridad, puesto que permite la verificación ent iempo real de los datos para confirmar su correcta inscerción, sin embargo no debe de ser el único método de validación de datos en una forma puesto que como vimos, se pueden saltar. <br><br>
+    
+    </div> </div>
+
     <script src="./index.js"></script>
     </body>
 </html>
