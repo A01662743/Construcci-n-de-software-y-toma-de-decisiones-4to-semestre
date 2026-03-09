@@ -99,7 +99,7 @@ function inv(num) {
 }
 
 document.write("<div class='subtitle'>Ejercicio 5</div>");
-document.write(`<p>El inverso de 6993643 es: ${inv(6993643)}</p>`);
+document.write(`<p>El inverso de 6993643 es: ${inv(6993643)}</p> <br><br>`);
 
 //Ejercicio 6
 class GestorContenido {

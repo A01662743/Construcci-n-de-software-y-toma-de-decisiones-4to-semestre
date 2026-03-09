@@ -1,3 +1,5 @@
+console.log("---- LAB 8 ----");
+
 // Ejercicio 1
 function promedios(arreglo) {
   let sum = 0;
@@ -47,6 +49,7 @@ function obtenerFibonacci(n) {
 const posicion = 4;
 console.log(`El número Fibonacci en la posición ${posicion} es: ${obtenerFibonacci(posicion)}`);
 
+console.log("--------------");
 
 //despliegue de página html con express
 
@@ -55,13 +58,35 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// Servir archivos estáticos (CSS, JS, imágenes) desde la carpeta "public"
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Ruta principal: enviar HTML a localhost:3000
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'my first html.html'));
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+const session = require('express-session');
+app.use(session({
+    secret: 'mi string secreto que debe ser un string aleatorio muy largo, no como éste', 
+    resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
+    saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
+}));
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
+
+const rutasUsuarios = require('./routes/users.routes');
+app.use('/users', rutasUsuarios);
+const rutasSites = require('./routes/sites.routes');
+app.use('/sites', rutasSites);
+const rutasHome = require('./routes/home.routes');
+app.use('/', rutasHome);
+
+
+app.use((error, request, response, next) => {
+  response.status(500).send(`Error interno del servidor: ${error.stack}`);
 });
+app.use((request, response, next) => {
+  response.status(404).send("El site no existe")
+})
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);

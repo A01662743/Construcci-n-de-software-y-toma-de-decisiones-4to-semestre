@@ -1,0 +1,36 @@
+<%- include('includes/_header') %>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    
+                    <h1 class="title has-text-centered">Registro de Imagen</h1>
+                    
+                    <form action="/sites/new" method="POST" id="miFormulario" class="box">
+                        <div class="field">
+                            <label class="label">Nombre del autor / Título</label>
+                                <input name="nombre" id="nombre" class="input" type="text" placeholder="Ej. Wikipedia" required>
+                                <span class="icon is-small is-left">
+                            </span>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Enlace de la Imagen (URL)</label>
+                                <input name="imagen" id="urlImagen" class="input" type="url" placeholder="https://ejemplo.com/imagen.jpg" required>
+                                    <i class="fas fa-link"></i>
+                            <p class="help">Debe ser un enlace directo a un archivo de imagen.</p>
+                        </div>
+
+                        <div class="field is-grouped is-grouped-centered">
+                            <div class="control">
+                                <button type="submit" class="button is-primary is-fullwidth">
+                                    <span>Enviar Datos</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section> 

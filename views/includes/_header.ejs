@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first HTML</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">4to semestre: MI HTML</h1>
+
+            <nav class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <p class="subtitle">
+                            <% if (typeof(username) != "undefined" && username != "") { %>
+                                Hola <strong><%= username %></strong>!
+                            <% } %>
+                        </p>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="buttons">
+                        <a class="button is-primary is-rounded"><strong>Sign up</strong></a>
+                        
+                        <% if (typeof(username) != "undefined" && username != "") { %>
+                            <a class="button is-light" href="/users/logout">Log out</a>
+                        <% } else { %>
+                            <a class="button is-light" href="/users/login">Log in</a>
+                        <% } %>
+                    </div>
+                </div>
+            </nav>
