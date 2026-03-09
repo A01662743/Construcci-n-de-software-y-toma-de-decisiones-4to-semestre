@@ -73,6 +73,10 @@ app.use(session({
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
+const csrf = require('csurf');
+const csrfProtection = csrf();
+app.use(csrfProtection);
+
 const rutasUsuarios = require('./routes/users.routes');
 app.use('/users', rutasUsuarios);
 const rutasSites = require('./routes/sites.routes');

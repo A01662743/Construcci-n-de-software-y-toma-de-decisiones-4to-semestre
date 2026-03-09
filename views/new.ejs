@@ -4,11 +4,12 @@
             <div class="columns is-centered">
                 <div class="column is-half">
                     
-                    <h1 class="title has-text-centered">Registro de Imagen</h1>
+                    <h1 class="title has-text-centered">Registro de Sitio</h1>
                     
                     <form action="/sites/new" method="POST" id="miFormulario" class="box">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
                         <div class="field">
-                            <label class="label">Nombre del autor / Título</label>
+                            <label class="label">Nombre del sitio</label>
                                 <input name="nombre" id="nombre" class="input" type="text" placeholder="Ej. Wikipedia" required>
                                 <span class="icon is-small is-left">
                             </span>

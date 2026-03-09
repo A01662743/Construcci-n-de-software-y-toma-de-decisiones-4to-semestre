@@ -1,0 +1,51 @@
+<%- include('includes/_header') %>
+<form action="/users/signup" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+    <div class="field">
+        <label for="username" class="label">Username</label>
+        <div class="control">
+            <input name="username" id="username" class="input" type="text" placeholder="e.g Vi" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="nombre" class="label">Nombre</label>
+        <div class="control">
+            <input name="nombre" id="nombre" class="input" type="text" placeholder="e.g Vi" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="password_confirm" class="label">Password</label>
+        <div class="control">
+            <input name="password" id="password" class="input" type="password">
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="password_confirm" class="label">Confirmar password</label>
+        <div class="control">
+            <input id="password_confirm" name="password_confirm" class="input" type="password" required>
+        </div>
+    </div>
+
+    <div id="dont_match" class="notification is-warning" style="display:none;">
+        <button class="delete"></button>
+        Las contraseñas no coinciden
+    </div>
+
+    <input class="button is-primary" type="submit" value="Guardar">
+</form>
+
+<script>
+    const password_confirm = document.getElementById('password_confirm');
+    const password = document.getElementById('password');
+    const dont_match = document.getElementById('dont_match');
+    password_confirm.onkeyup = () => {
+        if(password_confirm.value != password.value) {
+            dont_match.style.display = "block";
+        } else {
+            dont_match.style.display = "none";
+        }
+    }
+</script>
