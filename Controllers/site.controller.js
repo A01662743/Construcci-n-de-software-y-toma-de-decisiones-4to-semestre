@@ -20,6 +20,7 @@ exports.post_new = (request, response, next) => {
 };
 
 exports.get_list = (request, response, next) => {
+    console.log(request.session.privilegios);
     Site.fetch(request.params.sites_id).then(([rows, fielData]) => {
             return response.render('list', {
                 isLoggedIn: request.session.IsLoggedIn || '',

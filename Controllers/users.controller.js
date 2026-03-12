@@ -32,17 +32,23 @@ exports.get_login = (request, response, next) => {
 };
 
 exports.post_login = (request, response, next) => {
-    User.fetchOne(request.body.username).then(([rows, fieldData]) => {
-        if (rows.length < 1) {
+    User.fetchOne(request.body.username).then(([usuarios, fieldData]) => {
+        if (usuarios.length < 1) {
             request.session.error = 'Usuario y/o password no coinciden';
             return response.redirect('/users/login');
         } else {
-            bcrypt.compare(request.body.password, rows[0].password).then((doMatch) => {
+            bcrypt.compare(request.body.password, usuarios[0].password).then((doMatch) => {
                 if (doMatch) {
                     request.session.isLoggedIn = true;
                     request.session.username = request.body.username;
-                    return request.session.save((error) => {
-                        return response.redirect("/home");
+                    User.getPrivilegios(request.body.username).then(([privilegios, fieldData]) => {
+                        request.session.privilegios = privilegios;
+                        return request.session.save((error) => {
+                            return response.redirect("/home");
+                        });
+                    }).catch((error) => {
+                        console.log(error);
+                        next(error);
                     });
                 } else {
                     request.session.error = 'Usuario y/o password no coinciden';
