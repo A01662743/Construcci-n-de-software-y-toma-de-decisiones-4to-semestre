@@ -6,7 +6,7 @@
                     
                     <h1 class="title has-text-centered">Registro de Sitio</h1>
                     
-                    <form action="/sites/new" method="POST" id="miFormulario" class="box">
+                    <form action="/sites/new" method="POST" id="miFormulario" class="box" enctype="multipart/form-data">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
                         <div class="field">
                             <label class="label">Nombre del sitio</label>

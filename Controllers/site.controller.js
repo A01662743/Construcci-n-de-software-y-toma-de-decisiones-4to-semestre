@@ -10,7 +10,7 @@ exports.get_new = (request, response, next) => {
 };
 
 exports.post_new = (request, response, next) => {
-    const site = new Site(request.body.nombre, request.body.imagen);
+    const site = new Site(request.body.nombre, request.file.filename, request.body.tipo);
     site.save().then(() => {
         return response.redirect('/sites');
     }).catch((error) => {
