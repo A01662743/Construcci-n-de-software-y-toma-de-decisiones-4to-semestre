@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-03-2026 a las 17:06:55
+-- Tiempo de generación: 18-04-2026 a las 20:28:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,63 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `sites`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_asignar_privilegio_a_rol` (IN `p_id_rol` INT, IN `p_id_privilegio` INT)   BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error al asignar el privilegio al rol.';
+    END;
+
+    START TRANSACTION;
+        -- Verificamos si la relación ya existe para evitar errores de PK
+        IF NOT EXISTS (SELECT 1 FROM otorga WHERE id_rol = p_id_rol AND id_privilegio = p_id_privilegio) THEN
+            INSERT INTO otorga (id_rol, id_privilegio) 
+            VALUES (p_id_rol, p_id_privilegio);
+        END IF;
+    COMMIT;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_eliminar_usuario_total` (IN `p_username` VARCHAR(50))   BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: Falló la eliminación en cascada del usuario.';
+    END;
+
+    START TRANSACTION;
+        -- 1. Eliminar primero las relaciones de roles (tabla tiene)
+        DELETE FROM tiene WHERE id_usuario = p_username;
+
+        -- 2. Eliminar al usuario de la tabla principal
+        DELETE FROM users WHERE username = p_username;
+    COMMIT;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_registrar_usuario_con_rol` (IN `p_username` VARCHAR(50), IN `p_password` VARCHAR(300), IN `p_nombre` VARCHAR(300), IN `p_id_rol` INT)   BEGIN
+    -- Declarar manejador de errores para hacer Rollback
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: No se pudo completar el registro del usuario.';
+    END;
+
+    START TRANSACTION;
+        -- 1. Insertar en la tabla users
+        INSERT INTO users (username, password, nombre) 
+        VALUES (p_username, p_password, p_nombre);
+
+        -- 2. Vincular con el rol en la tabla tiene
+        INSERT INTO tiene (id_rol, id_usuario) 
+        VALUES (p_id_rol, p_username);
+    COMMIT;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -97,7 +154,8 @@ CREATE TABLE `sitios` (
 INSERT INTO `sitios` (`id`, `nombre`, `imagen`) VALUES
 (1, 'Wikipedia', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1280px-Wikipedia-logo-v2.svg.png'),
 (2, 'Coolors', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Z-Za29aK4uzU66jX6xoysmA5Lku43hsFwg&s'),
-(3, 'Instagram', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1280px-Instagram_logo_2022.svg.png');
+(3, 'Instagram', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1280px-Instagram_logo_2022.svg.png'),
+(4, 'NotebookLM', '690-notebookLM_icon.png');
 
 -- --------------------------------------------------------
 
@@ -188,7 +246,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `sitios`
 --
 ALTER TABLE `sitios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
