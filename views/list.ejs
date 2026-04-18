@@ -1,15 +1,22 @@
 <%- include('includes/_header') %>
 
+<label for="buscar">Buscar</label>
+<input
+  class="input is-primary"
+  type="text"
+  id="buscar"
+  placeholder="Coolors..."
+/>
+<br><br>
 
-
-<div class="columns is-multiline">
-                <% for (let sitio of sitios) { %>
+<div class="columns is-multiline" id="lista">
+                <% for (let sitio of sites) { %>
                     <div class="column is-one-third">
                         <div class="box has-text-centered">
                             <p class="heading">Sitio</p>
                             <p class="title is-5"><%= sitio.nombre %></p>
                             <figure class="image is-128x128 is-inline-block">
-                                <img class="is-rounded" src="/uploads/<%= juego.imagen %>" />
+                                <img class="is-rounded" src="<%= sitio.imagen %>" />
                             </figure>
                         </div>
                     </div>
@@ -24,3 +31,38 @@
 
         </div> </section> </body>
 </html>
+
+<script>
+  const buscar = document.getElementById("buscar");
+  buscar.onkeyup = () => {
+    fetch(`/sitios/buscar/${buscar.value}`,{
+      method: 'GET',
+    }).then((result) => {
+      return result.json(); 
+    }).then((data) => {
+      console.log(data);
+      let html = '';
+
+      for (let sitio of data.sites) { 
+        html += `<div class="column">
+                    <a href="/sites/${sitio.id}">${sitio.nombre}</a><br>
+                    <span class="tag">${sitio.nombre}</span>
+                    <figure class="image">
+                        <img class="is-rounded" src="${sitio.imagen}" />
+                    </figure>`;
+                    <% for (let privilegio of privilegios) { %>
+                      <% if (privilegio.privilegio == 'crear_sitio') { %>
+                        html += `<br>
+                        <a href="/sites/${sitio.id}/edit" class="button is-primary">Editar</a>`;
+                      <% } %>
+                    <% } %>
+                html += `</div>`;
+      }
+
+      const lista = document.getElementById("lista");
+      lista.innerHTML = html;
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+</script>

@@ -45,4 +45,11 @@ module.exports = class Site {
         
     }
 
+    static edit(id, nombre, imagen) {
+        return db.execute(
+            `UPDATE sitios SET nombre=?, imagen=? WHERE id=?`,
+            [nombre, imagen, id]
+        );
+    }
+
 }
